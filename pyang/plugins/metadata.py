@@ -2,7 +2,8 @@
 
 Verifies YANG metadata statements as defined in
 draft-ietf-netmod-yang-metadata-01, with the exception that
-it requires a 'type' substatement to 'annotation'.
+it requires a 'type' substatement to 'annotation', and restricts
+the name of the annotation to 'identifier'.
 
 Verifies the grammar of the annotation extension statement.
 """
@@ -38,11 +39,11 @@ md_stmts = [
     #  <list of keywords where <keyword> can occur>)
 
     ('annotation', '*',
-     ('string', [('if-feature', '*'),
-                 ('type', '1'),
-                 ('units', '?'),
-                 ('status', '?'),
-                 ('description', '?'),
-                 ('reference', '?')]),
+     ('identifier', [('if-feature', '*'),
+                     ('type', '1'),
+                     ('units', '?'),
+                     ('status', '?'),
+                     ('description', '?'),
+                     ('reference', '?')]),
      ['module', 'submodule']),
 ]
